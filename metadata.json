@@ -1,0 +1,6 @@
+{
+  "name": "Resume Correct App",
+  "description": "AI-powered ATS score checker, mistake detector & real-time resume optimizer in dark grey and crimson red visual theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
