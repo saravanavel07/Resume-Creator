@@ -1,78 +1,202 @@
-# ATS Resume Checker & Optimization Studio 🚀
+# Resume Correct App
 
-An advanced, privacy-first **Applicant Tracking System (ATS) Resume Optimization Studio** designed to help job seekers audit, rework, and tailor their resumes to pass corporate ATS screeners (Workday, Taleo, Greenhouse, Lever, iCIMS, Epic, etc.) with 100% parsing fidelity.
+A modern ATS-focused resume optimization platform that helps job seekers improve resume quality, align with job descriptions, and generate recruiter-friendly documents with a professional, clean, and ATS-safe output.
 
----
+This application analyzes resume content, highlights weak points, suggests improvements, and provides a structured workflow for resume writing, optimization, and export.
 
-## 🌟 Key Capabilities & Features
+## Overview
 
-### 1. ⚡ 1-Click Auto Rework Engine
-- **Passive-to-Active Verb Transformation**: Automatically detects and upgrades weak lead phrasing (e.g., *"responsible for"*, *"worked on"*, *"helped with"*) into high-impact power verbs (*"Spearheaded"*, *"Architected"*, *"Orchestrated"*).
-- **Metric Quantification**: Injects realistic quantifiable business impact ($ savings, % growth, user scale, team throughput) into unquantified bullet points.
-- **Header & Contact Cleanup**: Standardizes phone numbers, email syntax, location strings, and custom LinkedIn handle URLs.
+Resume Correct App is designed to help candidates:
 
-### 2. 🏢 Target Company ATS Presets
-Tailor your resume bullets to exact company-specific recruiter evaluation frameworks:
-- **Google "XYZ" Formula**: Enforces *Accomplished [X] as measured by [Y] by doing [Z]*.
-- **Amazon STAR + Leadership Principles**: Mandates Situation/Task -> Action -> Result structure with implicit Leadership Principle alignment (Customer Obsession, Ownership, Deliver Results).
-- **McKinsey & Co. / Strategy Consulting**: Top-down MECE structure highlighting bottom-line financial impact ($ saved/generated) and executive presence.
-- **Enterprise Fortune 500 (Workday / Taleo)**: Clean 1-column single-line layout ensuring 100% parsing accuracy on legacy scanners.
-- **Healthcare & Clinical Systems (Epic / Cerner)**: Emphasizes licensure (RN, BLS, ACLS), EHR system proficiency, bed counts, and patient safety metrics.
-- **Fresher & Graduate Trainee**: Tailored for 0–2 years experience, prioritizing academic honors, capstone projects, and core technical agility.
+- Analyze ATS compatibility and resume quality
+- Compare resumes against target job descriptions
+- Identify weak phrases and missing content
+- Improve bullet points using stronger action verbs and measurable outcomes
+- Apply company-specific ATS best practices
+- Export polished resumes in ATS-friendly layouts
 
-### 3. 🛡️ Real-Time ATS Best Practices Checklist Drawer
-- Slide-out interactive drawer running continuous audits on your resume as you type.
-- Checks **8 core compliance rules**:
-  1. Graphical Elements & Text Box Avoidance
-  2. Standard Section Headings
-  3. Consistent Month/Year Date Formatting
-  4. Strong Action Verbs
-  5. Quantifiable Metrics (50%+ target)
-  6. Clean Contact Header Formatting
-  7. Safe Standard Bullet Point Symbols
-  8. Word Count & Single-Page Density (300–700 words)
-- Includes **1-Click Auto-Fix** buttons for instant compliance resolution.
+It combines a React + TypeScript frontend with a local analysis engine and supports both interactive editing and export workflows.
 
-### 4. 🎨 ATS Layout Template Picker with Live Preview
-- Toggle seamlessly between **Modern Tech**, **Professional Executive**, and **Minimalist Single-Page** ATS-optimized layout styles.
-- Live real-time preview panel updates synchronously as you edit text or swap layout styles.
+## Key Features
 
-### 5. 📄 ATS-Safe PDF Export & Printing
-- Generates clean, parse-friendly PDF documents via custom `html2pdf.js` integration with automated color-sanitization fallbacks.
-- Includes density toggles (Compact 1-Page Maximizer vs. Standard Spacing).
+### ATS Resume Analysis
+- Real-time scoring of resume strength and ATS compliance
+- Detailed feedback on missing keywords, weak language, and formatting issues
+- Role-specific evaluation against job descriptions
 
----
+### Resume Optimization Engine
+- Auto-rework suggestions for passive or generic bullet points
+- Stronger action verbs and quantified impact language
+- Structured recommendation flow for improving weak sections
 
-## 🛠️ Technology Stack
+### Company-Specific ATS Presets
+- Tailored resume guidance for different hiring systems and employers
+- Preset optimization strategies for major company formats and hiring frameworks
+- Better alignment for workday, taleo, and specialized ATS environments
 
-- **Frontend Framework**: React 18 with TypeScript & Vite
-- **Styling & UI**: Tailwind CSS with custom dark luxury design system
-- **Animations**: Motion (`motion/react`)
-- **Icons**: Lucide React (`lucide-react`)
-- **PDF Generation**: `html2pdf.js` with fallback to browser print engine
+### Resume Builder and Editor
+- Editable resume sections for contact details, summary, experience, education, skills, and projects
+- Guided improvement workflow for specific ATS issues
+- Live updates to reflect changes instantly
 
----
+### Resume History and Tracking
+- Score snapshots over time
+- Historical resume analysis for iterative improvement
+- Resume refinement through repeated evaluation cycles
 
-## 🚀 Getting Started
+### Export and Preview
+- ATS-safe preview layouts for polished presentation
+- PDF and document-style export support
+- Clean formatting suitable for recruiter review and printing
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Express
+- Docx export support
+- HTML to PDF generation
+- Lucide icons
+- Motion animations
+
+## Architecture
+
+The app is structured as a full-stack frontend experience with a local analysis engine and server-side entry point:
+
+- `App.tsx` — main application shell and workflow orchestration
+- `server.ts` — Express server and API endpoints
+- `atsParser.ts` — ATS analysis logic and resume evaluation rules
+- `ResumeEditor.tsx` — resume editing experience
+- `AnalysisResults.tsx` — scoring dashboard and optimization feedback
+- `ATSPreviewExport.tsx` — export and preview module
+- `sampleResumes.ts` — sample data for testing and demonstration
+- `resumeTemplates.ts` — resume template definitions
+
+## Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- npm / yarn / pnpm
 
-### Installation & Local Run
+- Node.js 18 or later
+- npm or bun
+
+### Installation
 
 ```bash
-# Install dependencies
 npm install
+```
 
-# Start the development server (runs on http://localhost:3000)
+### Run the app locally
+
+```bash
 npm run dev
+```
 
-# Build for production
+This starts the development server and serves the application locally.
+
+### Production build
+
+```bash
 npm run build
 ```
 
+### Start production build
+
+```bash
+npm run start
+```
+
+## Available Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build frontend and server bundle
+npm run start    # Run production server
+npm run preview  # Preview the built frontend
+npm run clean    # Remove dist artifacts
+npm run lint     # Type-check the project
+```
+
+## Environment Variables
+
+This project includes an example environment file:
+
+- `env.example`
+
+Example:
+
+```env
+GEMINI_API_KEY="MY_GEMINI_API_KEY"
+APP_URL="MY_APP_URL"
+```
+
+## Project Structure
+
+```text
+Resume-Creator/
+├── App.tsx
+├── ATSPreviewExport.tsx
+├── AnalysisResults.tsx
+├── AutoReworkEngine.tsx
+├── AtsBestPracticesDrawer.tsx
+├── Navbar.tsx
+├── ResumeEditor.tsx
+├── ResumeInputTab.tsx
+├── ScoreGauge.tsx
+├── ScoreHistory.tsx
+├── atsParser.ts
+├── companyAtsFormats.ts
+├── docxExport.ts
+├── documentExtract.ts
+├── env.example
+├── index.css
+├── index.html
+├── main.tsx
+├── metadata.json
+├── package.json
+├── resumeTemplates.ts
+├── sampleResumes.ts
+├── scoreHistory.ts
+├── server.ts
+├── tsconfig.json
+├── types.ts
+├── vite.config.ts
+├── README.md
+└── bun.lock
+```
+
+## Privacy and Data Handling
+
+The application is designed with privacy in mind. Resume parsing, scoring, and optimization logic can be run locally in the browser, helping users work on personal career data without exposing sensitive resume information unnecessarily.
+
+## Why This Project Matters
+
+Many job applicants struggle with resumes that are technically complete but not optimized for ATS or recruiter review. This project addresses that gap by helping users:
+
+- improve keyword alignment with job descriptions
+- reduce common ATS errors
+- write stronger impact-focused bullet points
+- present information in a cleaner, recruiter-friendly format
+
+## License
+
+This project does not currently include an explicit license file. Please check with the repository owner before using it for commercial or production distribution.
+
+## Contributing
+
+Contributions are welcome. You can help by:
+
+- improving ATS evaluation logic
+- refining UI/UX for better resume editing flow
+- adding more ATS-specific templates
+- enhancing export quality and formatting
+- expanding the document parser and analysis features
+
+## Contact
+
+For questions, suggestions, or collaboration opportunities, please connect via the repository owner or project maintainer on GitHub.
+
 ---
 
-## 🔒 Privacy & Data Handling
-All resume parsing, scoring, and transformation logic is performed **100% locally in your browser**. No personal contact details, work history, or job descriptions are transmitted to external databases.
+Built with a focus on ATS compliance, resume clarity, and job-ready career presentation.
